@@ -2,7 +2,7 @@ Forked from https://github.com/Schine/MW-OAuth2Client
 
 Changes to upstream:
  - Sync groups from OAuth2 (TODO)
- - Allow user to manually set their real name (Upstream overwrites real name on login) (TODO)
+ - Allow user to manually set their real name (Upstream overwrites real name on login)
 
 # MediaWiki OAuth2 Client
 MediaWiki implementation of the PHP League's [OAuth2 Client](https://github.com/thephpleague/oauth2-client), to allow MediaWiki to act as a client to any OAuth2 server. Currently maintained by [Schine GmbH](https://www.star-made.org/).
