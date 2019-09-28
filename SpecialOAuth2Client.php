@@ -175,7 +175,11 @@ class SpecialOAuth2Client extends SpecialPage {
 		}
 		$user->setToken();
 
-		if ($authGroups != null) {
+		if ($authGroups == null) {
+			foreach($wikiGroups as $wikiGroup) {
+				$user->removeGroup($wikiGroup);
+			}
+		else {
 			$wikiGroups = $user->getGroups();
 			foreach($wikiGroups as $wikiGroup) {
 				if ( !in_array($wikiGroup, $authGroups) ) {
