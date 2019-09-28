@@ -155,6 +155,7 @@ class SpecialOAuth2Client extends SpecialPage {
 
 		$username = JsonHelper::extractValue($response, $wgOAuth2Client['configuration']['username']);
 		$email =  JsonHelper::extractValue($response, $wgOAuth2Client['configuration']['email']);
+		$authGroups = JsonHelper::extractValue($response, $wgOAuth2Client['configuration']['groups']);
 
 		$user = User::newFromName($username, 'creatable');
 		if (!$user) {
@@ -173,6 +174,24 @@ class SpecialOAuth2Client extends SpecialPage {
 			$user->confirmEmail();
 		}
 		$user->setToken();
+
+		if ($authGroups == null) {
+			foreach($wikiGroups as $wikiGroup) {
+				$user->removeGroup($wikiGroup);
+			}
+		} else {
+			$wikiGroups = $user->getGroups();
+			foreach($wikiGroups as $wikiGroup) {
+				if ( !in_array($wikiGroup, $authGroups) ) {
+					$user->removeGroup($wikiGroup);
+				}
+			}
+			foreach($authGroups as $authGroup) {
+				if( !in_array($authGroup, $wikiGroups) ) {
+					$user->addGroup($authGroup);
+				}
+			}
+		}
 
 		// Setup the session
 		$wgRequest->getSession()->persist();

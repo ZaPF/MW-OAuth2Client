@@ -1,7 +1,7 @@
 Forked from https://github.com/Schine/MW-OAuth2Client
 
 Changes to upstream:
- - Sync groups from OAuth2 (TODO)
+ - Sync groups from OAuth2
  - Allow user to manually set their real name (Upstream overwrites real name on login)
 
 # MediaWiki OAuth2 Client
