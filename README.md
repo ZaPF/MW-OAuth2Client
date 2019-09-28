@@ -1,4 +1,5 @@
 Forked from https://github.com/Schine/MW-OAuth2Client
+
 Changes to upstream:
  - Sync groups from OAuth2 (TODO)
  - Allow user to manually set their real name (Upstream overwrites real name on login) (TODO)
