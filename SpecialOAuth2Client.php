@@ -179,7 +179,7 @@ class SpecialOAuth2Client extends SpecialPage {
 			foreach($wikiGroups as $wikiGroup) {
 				$user->removeGroup($wikiGroup);
 			}
-		else {
+		} else {
 			$wikiGroups = $user->getGroups();
 			foreach($wikiGroups as $wikiGroup) {
 				if ( !in_array($wikiGroup, $authGroups) ) {
